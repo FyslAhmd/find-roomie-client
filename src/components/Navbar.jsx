@@ -1,13 +1,12 @@
 import React, { use, useState } from "react";
 import { Link, NavLink } from "react-router";
 import navImg from "../assets/logo3.PNG";
-// import AuthContext from "../provider/AuthContext";
-// import profilePic from "../assets/profile.png";
-// import { toast } from "react-toastify";
+import AuthContext from "../provider/AuthContext";
+import profilePic from "../assets/profile.png";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-  //   const { user, setUser, logOut } = use(AuthContext);
-  const { user, setUser, logOut } = useState();
+    const { user, setUser, logOut } = use(AuthContext);
 
   const logOutUser = () => {
     logOut()
@@ -106,9 +105,14 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <Link className="btn bg-black text-white" to="/login">
-            Login
-          </Link>
+          <div>
+            <Link className="btn bg-black text-white" to="/login">
+              Login
+            </Link>
+            <Link className="btn bg-black text-white" to="/register">
+              Sign Up
+            </Link>
+          </div>
         )}
       </div>
     </div>

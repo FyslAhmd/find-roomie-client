@@ -21,7 +21,7 @@ const Slider = () => {
         <div className="absolute inset-0 z-10 flex items-center justify-around px-18 lg:px-10 text-white">
           <div className="max-w-md text-center">
             <h2 className="md:text-3xl font-bold">Smart Matchmaking</h2>
-            <p className="mt-3 text-xs md:text-base leading-relaxed hidden md:block">
+            <p className="mt-3 text-xs md:text-base leading-relaxed">
               Find your perfect roommate match with our intelligent matching
               system based on habits, preferences, and lifestyle.
             </p>
@@ -56,7 +56,7 @@ const Slider = () => {
         <div className="absolute inset-0 z-10 flex items-center justify-around px-18 lg:px-10 text-white">
           <div className="max-w-md text-center">
             <h2 className="md:text-3xl font-bold">Post Your Room</h2>
-            <p className="mt-3 text-xs md:text-base leading-relaxed hidden md:block">
+            <p className="mt-3 text-xs md:text-base leading-relaxed">
               Got a spare room? Post your listing in minutes and find the right
               roommate fast.
             </p>
@@ -93,7 +93,7 @@ const Slider = () => {
         <div className="absolute inset-0 z-10 flex items-center justify-around px-18 lg:px-10 text-white">
           <div className="max-w-md text-center">
             <h2 className="md:text-3xl font-bold">Chat & Connect</h2>
-            <p className="mt-3 text-xs md:text-base leading-relaxed hidden md:block">
+            <p className="mt-3 text-xs md:text-base leading-relaxed">
               Built-in chat system lets you talk before moving in. Break the
               ice.
             </p>
