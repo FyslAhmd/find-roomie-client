@@ -4,6 +4,8 @@ import Home from "../Pages/Home";
 import Error404 from "../Pages/Error404";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import FindRoommate from "../Pages/FindRoommate";
+import PrivateRoute from "../provider/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/findRoommates",
-        element: <h1>find roommate</h1>,
+        element: (
+          <PrivateRoute>
+            <FindRoommate></FindRoommate>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/browseListing",
