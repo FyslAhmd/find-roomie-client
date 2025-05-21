@@ -18,18 +18,19 @@ const MyListings = () => {
     }
   }, [user?.email]);
 
-
-
-
-  fetch(`http://localhost:5000/myListings/${user.email}`)
-        .then((res) => res.json())
-        .then((d) => {
-          setAllData(d);
-        });
-
-
-
-        
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/roomInfo/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          console.log("data deleted");
+          const remainingData = allData.filter((item) => item._id !== id);
+          setAllData(remainingData);
+        }
+      });
+  };
 
   return (
     <div className="overflow-x-auto">
@@ -70,11 +71,12 @@ const MyListings = () => {
                     Update
                   </button>
                 </Link>
-                <Link to={`/details/${data._id}`}>
-                  <button className="btn btn-sm bg-red-700 text-white font-bold">
-                    Delete
-                  </button>
-                </Link>
+                <button
+                  onClick={() => handleDelete(data._id)}
+                  className="btn btn-sm bg-red-700 text-white font-bold"
+                >
+                  Delete
+                </button>
               </th>
             </tr>
           ))}
