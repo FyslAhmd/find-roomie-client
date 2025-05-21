@@ -18,6 +18,19 @@ const MyListings = () => {
     }
   }, [user?.email]);
 
+
+
+
+  fetch(`http://localhost:5000/myListings/${user.email}`)
+        .then((res) => res.json())
+        .then((d) => {
+          setAllData(d);
+        });
+
+
+
+        
+
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -31,7 +44,7 @@ const MyListings = () => {
         </thead>
         <tbody>
           {allData.map((data) => (
-            <tr>
+            <tr key={data._id}>
               <td>
                 <div className="flex items-center gap-3">
                   <div>
@@ -52,7 +65,7 @@ const MyListings = () => {
                 <div>Room Type: {data.roomType}</div>
               </td>
               <th className="text-center space-x-2">
-                <Link to={`/details/${data._id}`}>
+                <Link to={`/updateroom/${data._id}`}>
                   <button className="btn btn-sm bg-green-700 text-white font-bold">
                     Update
                   </button>

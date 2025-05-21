@@ -9,6 +9,7 @@ import PrivateRoute from "../provider/PrivateRoute";
 import RoomDetails from "../Pages/RoomDetails";
 import BrowseListings from "../Pages/BrowseListings";
 import MyListings from "../Pages/MyListings";
+import UpdateRoom from "../Pages/UpdateRoom";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,12 @@ const router = createBrowserRouter([
         path: "/browseListing",
         loader: () => fetch("http://localhost:5000/roomInfo"),
         Component: BrowseListings,
+      },
+      {
+        path: "/updateroom/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/roomInfo/${params.id}`),
+        Component: UpdateRoom,
       },
       {
         path: "/myListing",

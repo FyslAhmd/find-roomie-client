@@ -3,14 +3,6 @@ import { Link, useLoaderData } from "react-router";
 
 const BrowseListings = () => {
   const allData = useLoaderData();
-  //   const {
-  //     rentAmount,
-  //     roomType,
-  //     lifeStyle,
-  //     description,
-  //     contact,
-  //     email,
-  //   } = allData;
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -24,7 +16,7 @@ const BrowseListings = () => {
         </thead>
         <tbody>
           {allData.map((data) => (
-            <tr>
+            <tr key={data._id}>
               <td>
                 <div className="flex items-center gap-3">
                   <div>
