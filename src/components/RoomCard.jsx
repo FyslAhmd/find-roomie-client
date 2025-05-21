@@ -2,9 +2,10 @@ import React from "react";
 import { IoMdPerson } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdBedroomChild, MdOutlineTextSnippet } from "react-icons/md";
+import { Link } from "react-router";
 
 const RoomCard = ({ data }) => {
-  const { title, location, rentAmount, roomType, lifeStyle, displayName } =
+  const { _id, title, location, rentAmount, roomType, lifeStyle, displayName } =
     data;
   return (
     <div className="card bg-base-100 shadow-sm">
@@ -35,9 +36,11 @@ const RoomCard = ({ data }) => {
           </li>
         </ul>
         <div className="mt-6">
-          <button className="btn w-full bg-black text-white font-bold">
-            See More
-          </button>
+          <Link to={`/details/${_id}`}>
+            <button className="btn w-full bg-black text-white font-bold">
+              See More
+            </button>
+          </Link>
         </div>
       </div>
     </div>
