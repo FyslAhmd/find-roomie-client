@@ -1,17 +1,44 @@
-import React from "react";
+import React, { use } from "react";
+import AuthContext from "../provider/AuthContext";
 
 const FindRoommate = () => {
+  const { user } = use(AuthContext);
+  const { displayName, email } = user;
+
+  const handleAddRoommate = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const formInfo = Object.fromEntries(formData.entries());
+    const roomInfo = { ...formInfo, email, displayName };
+
+    // send to DB
+    fetch("http://localhost:5000/roomInfo", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(roomInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          console.log("data posted in DB");
+        }
+      });
+  };
   return (
     <div>
       <h1 className="text-3xl text-center font-bold my-5">
         Find Your Roommate
       </h1>
-      <form className="fieldset w-full p-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form
+        onSubmit={handleAddRoommate}
+        className="fieldset w-full p-4 grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
         <div>
           <label className="label text-xl text-black">Title</label>
           <br />
           <input
             type="text"
+            name="title"
             className="border rounded-lg p-2 text-lg w-full md:w-2/3"
             placeholder="Enter Title"
           />
@@ -22,6 +49,7 @@ const FindRoommate = () => {
           <br />
           <input
             type="text"
+            name="location"
             className="border rounded-lg p-2 text-lg w-full md:w-2/3"
             placeholder="Enter Your Location"
           />
@@ -32,6 +60,7 @@ const FindRoommate = () => {
           <br />
           <input
             type="text"
+            name="rentAmount"
             className="border rounded-lg p-2 text-lg w-full md:w-2/3"
             placeholder="Enter Rent Amount"
           />
@@ -42,6 +71,7 @@ const FindRoommate = () => {
           <br />
           <input
             type="text"
+            name="roomType"
             className="border rounded-lg p-2 text-lg w-full md:w-2/3"
             placeholder="Room Type"
             list="roomType"
@@ -60,6 +90,7 @@ const FindRoommate = () => {
           <br />
           <input
             type="text"
+            name="lifeStyle"
             className="border rounded-lg p-2 text-lg w-full md:w-2/3"
             placeholder="Lifestyle Preferences"
             list="lifeStyle"
@@ -77,6 +108,7 @@ const FindRoommate = () => {
           <textarea
             className="h-24 w-full md:w-2/3 border rounded-lg p-2 text-lg"
             placeholder="Description"
+            name="description"
           ></textarea>
         </div>
 
@@ -85,6 +117,7 @@ const FindRoommate = () => {
           <br />
           <input
             type="text"
+            name="contact"
             className="border rounded-lg p-2 text-lg w-full md:w-2/3"
             placeholder="Contact Info"
           />
@@ -97,7 +130,7 @@ const FindRoommate = () => {
             <div className="flex items-center gap-5">
               <input
                 type="radio"
-                name="radio-3"
+                name="available-yes"
                 className="radio radio-neutral"
                 id="yes"
               />
@@ -108,7 +141,7 @@ const FindRoommate = () => {
             <div className="flex items-center gap-5">
               <input
                 type="radio"
-                name="radio-3"
+                name="available-no"
                 className="radio radio-neutral"
                 id="no"
               />
@@ -124,6 +157,9 @@ const FindRoommate = () => {
           <br />
           <input
             type="email"
+            name="email"
+            value={email}
+            disabled
             className="border rounded-lg p-2 text-lg w-full md:w-2/3"
             placeholder="Email"
           />
@@ -134,6 +170,9 @@ const FindRoommate = () => {
           <br />
           <input
             type="text"
+            name="name"
+            value={displayName}
+            disabled
             className="border rounded-lg p-2 text-lg w-full md:w-2/3"
             placeholder="Name"
           />
