@@ -7,6 +7,7 @@ import Register from "../Pages/Register";
 import FindRoommate from "../Pages/FindRoommate";
 import PrivateRoute from "../provider/PrivateRoute";
 import RoomDetails from "../Pages/RoomDetails";
+import BrowseListings from "../Pages/BrowseListings";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/browseListing",
-        element: <h1>browse listing</h1>,
+        loader: () => fetch("http://localhost:5000/roomInfo"),
+        Component: BrowseListings,
       },
       {
         path: "/myListing",
