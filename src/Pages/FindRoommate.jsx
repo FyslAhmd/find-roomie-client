@@ -130,9 +130,10 @@ const FindRoommate = () => {
             <div className="flex items-center gap-5">
               <input
                 type="radio"
-                name="available-yes"
+                name="available"
                 className="radio radio-neutral"
                 id="yes"
+                value="yes"
               />
               <label className="text-lg" htmlFor="yes">
                 Yes
@@ -141,9 +142,10 @@ const FindRoommate = () => {
             <div className="flex items-center gap-5">
               <input
                 type="radio"
-                name="available-no"
+                name="available"
                 className="radio radio-neutral"
                 id="no"
+                value="no"
               />
               <label className="text-lg" htmlFor="no">
                 No

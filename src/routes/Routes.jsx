@@ -15,6 +15,8 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: () => fetch("http://localhost:5000/featuredRoommate"),
+        hydrateFallbackElement: <h1>loading</h1>,
       },
       {
         path: "/findRoommates",
