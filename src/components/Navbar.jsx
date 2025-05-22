@@ -4,6 +4,7 @@ import navImg from "../assets/logo3.PNG";
 import AuthContext from "../provider/AuthContext";
 import profilePic from "../assets/profile.png";
 import { toast } from "react-toastify";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const { user, setUser, logOut } = use(AuthContext);
@@ -79,6 +80,9 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
+        <div>
+          <ThemeToggle></ThemeToggle>
+        </div>
         {user ? (
           <div className="flex items-center gap-3">
             {user.photoURL ? (
