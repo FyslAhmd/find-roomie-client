@@ -4,18 +4,18 @@ const Footer = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-black text-white p-10">
       <nav>
-        <h6 className="footer-title">Explore</h6>
-        <a className="link link-hover">Top Apps</a>
-        <a className="link link-hover">New Releases</a>
-        <a className="link link-hover">Privacy Policy</a>
-        <a className="link link-hover">Terms of Service</a>
+        <h6 className="footer-title">RoomMateFinder</h6>
+        <a className="link link-hover">Browse Roommates</a>
+        <a className="link link-hover">Post Your Room</a>
+        <a className="link link-hover">Safety Tips</a>
+        <a className="link link-hover">Community Guidelines</a>
       </nav>
       <nav>
-        <h6 className="footer-title">Developer Resources</h6>
-        <a className="link link-hover">Developer Console</a>
-        <a className="link link-hover">Submit Your App</a>
-        <a className="link link-hover">Monetization</a>
-        <a className="link link-hover">Support</a>
+        <h6 className="footer-title">Developer</h6>
+        <a className="link link-hover">About the Developer</a>
+        <a className="link link-hover">My Portfolio</a>
+        <a className="link link-hover">GitHub Repository</a>
+        <a className="link link-hover">Contact Me</a>
       </nav>
       <nav>
         <h6 className="footer-title">Social</h6>

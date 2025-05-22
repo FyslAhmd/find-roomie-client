@@ -1,12 +1,24 @@
 import React from "react";
 import { Link } from "react-router";
+import { Typewriter } from "react-simple-typewriter";
 
 const Steps = () => {
   return (
     <div className="bg-gray-300 rounded-xl my-10 px-8 py-10">
       <div className="text-center">
-        <h2 className="font-sans text-3xl font-bold">
-          Find your ideal roommate
+        <h2 className="font-sans text-3xl font-bold text-center">
+          Find your ideal{" "}
+          <span className="text-green-700">
+            <Typewriter
+              words={["roommate", "flatmate", "house partner"]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={80}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </span>
         </h2>
         <p className="text-lg text-gray-700 my-4">
           Our platform makes it easy for students to post, browse, and connect

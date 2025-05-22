@@ -6,7 +6,7 @@ import profilePic from "../assets/profile.png";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-    const { user, setUser, logOut } = use(AuthContext);
+  const { user, setUser, logOut } = use(AuthContext);
 
   const logOutUser = () => {
     logOut()
@@ -25,19 +25,19 @@ const Navbar = () => {
         Home
       </NavLink>
       <NavLink
-        className="text-base md:text-xl font-medium md:mr-4 p-2"
+        className="text-base md:text-xl font-medium md:mr-2 p-2"
         to="/findRoommates"
       >
         Find Roommates
       </NavLink>
       <NavLink
-        className="text-base md:text-xl font-medium md:mr-4 p-2"
+        className="text-base md:text-xl font-medium md:mr-2 p-2"
         to="/browseListing"
       >
         Browse Listing
       </NavLink>
       <NavLink
-        className="text-base md:text-xl font-medium md:mr-4 p-2"
+        className="text-base md:text-xl font-medium md:mr-2 p-2"
         to="/myListing"
       >
         My Listing
@@ -81,11 +81,6 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <div className="flex items-center gap-3">
-            <div>
-              <h1 className="text-cl font-semibold">
-                {user.displayName?.split(" ")[0]}
-              </h1>
-            </div>
             {user.photoURL ? (
               <img
                 src={user.photoURL}
