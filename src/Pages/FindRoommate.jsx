@@ -1,10 +1,15 @@
 import React, { use } from "react";
 import AuthContext from "../provider/AuthContext";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 const FindRoommate = () => {
   const { user } = use(AuthContext);
   const { displayName, email } = user;
+
+  useEffect(() => {
+      document.title = "FindMyRoomie | Find Roomie";
+    }, []);
 
   const handleAddRoommate = (e) => {
     e.preventDefault();

@@ -12,6 +12,7 @@ const MyListings = () => {
   const [allData, setAllData] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
+    document.title = "FindMyRoomie | My Listings";
     if (user?.email) {
       setLoading(true);
       fetch(

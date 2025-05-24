@@ -10,6 +10,7 @@ const RoomDetails = () => {
   const [like, setLike] = useState(data.like || 0);
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "FindMyRoomie | Roomie Details";
   }, []);
   const {
     _id,

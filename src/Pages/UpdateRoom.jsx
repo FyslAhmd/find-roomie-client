@@ -1,10 +1,14 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 
 const UpdateRoom = () => {
   const data = useLoaderData();
+  useEffect(() => {
+    document.title = "FindMyRoomie | Update Roomie";
+  }, []);
   const {
     _id,
     title,

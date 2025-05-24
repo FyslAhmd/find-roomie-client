@@ -1,8 +1,12 @@
 import React from "react";
+import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router";
 
 const BrowseListings = () => {
   const allData = useLoaderData();
+  useEffect(() => {
+    document.title = "FindMyRoomie | Browse Roomie";
+  }, []);
   return (
     <div className="overflow-x-auto text-base-context">
       <table className="table">
