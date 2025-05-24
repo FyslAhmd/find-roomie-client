@@ -26,23 +26,23 @@ const Navbar = () => {
 
   const links = (
     <>
-      <NavLink className="text-base md:text-xl font-medium md:mr-4 p-2" to="/">
+      <NavLink className="text-base md:text-lg font-medium md:mr-4 p-2" to="/">
         Home
       </NavLink>
       <NavLink
-        className="text-base md:text-xl font-medium md:mr-2 p-2"
+        className="text-base md:text-lg font-medium md:mr-2 p-2"
         to="/findRoommates"
       >
         Find Roommates
       </NavLink>
       <NavLink
-        className="text-base md:text-xl font-medium md:mr-2 p-2"
+        className="text-base md:text-lg font-medium md:mr-2 p-2"
         to="/browseListing"
       >
         Browse Listing
       </NavLink>
       <NavLink
-        className="text-base md:text-xl font-medium md:mr-2 p-2"
+        className="text-base md:text-lg font-medium md:mr-2 p-2"
         to="/myListing"
       >
         My Listing
@@ -53,7 +53,7 @@ const Navbar = () => {
     <div className="navbar bg-base-100 border-l border-r border-b border-white shadow-sm rounded-xl">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="md:hidden mr-2">
+          <div tabIndex={0} role="button" className="lg:hidden mr-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -77,10 +77,10 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className="md:text-xl font-bold flex gap-3 cursor-pointer" to="/">
-          <img className="h-10 rounded-lg bg-black" src={navImg} alt="" />
+          <img className="h-7 md:h-10 rounded-md md:rounded-lg bg-black" src={navImg} alt="" />
         </Link>
       </div>
-      <div className="navbar-center hidden md:flex">
+      <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">

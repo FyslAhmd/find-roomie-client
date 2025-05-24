@@ -25,7 +25,7 @@ const Steps = () => {
           with potential roommates or find available rooms hassle-free.
         </p>
       </div>
-      <div className="grid gap-8 mb-8 grid-cols-4">
+      <div className="grid gap-8 mb-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         <div className="p-5 duration-300 transform bg-base-100 rounded-lg shadow-lg hover:-translate-y-2">
           <div className="flex items-center justify-between mb-2">
             <p className="text-lg font-bold leading-5">Create Your Profile</p>
