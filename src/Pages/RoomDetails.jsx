@@ -25,7 +25,7 @@ const RoomDetails = () => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-xl p-6 mt-10 space-y-4">
+    <div className="bg-base-100 text-base-content shadow-lg rounded-xl p-6 mt-10 space-y-4">
       <div className="flex items-center justify-between px-4">
         <div>
           <p className="text-xl font-bold">{like} people interested in</p>
@@ -36,53 +36,47 @@ const RoomDetails = () => {
           </button>
           {showContact && (
             <div>
-              <h4 className="font-semibold text-gray-700">
-                Contact Info: {contact}
-              </h4>
+              <h4 className="font-semibold">Contact Info: {contact}</h4>
             </div>
           )}
         </div>
       </div>
-      <hr className="h-0.5 border-0 bg-gray-500 mx-4"/>
-      <h2 className="text-2xl font-bold text-center text-neutral-700">
-        {title}
-      </h2>
+      <hr className="h-0.5 border-0 bg-gray-500 mx-4" />
+      <h2 className="text-2xl font-bold text-center">{title}</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <div>
-          <h4 className="text-lg font-semibold text-gray-700">Posted By</h4>
-          <p className="text-gray-600">{displayName}</p>
+          <h4 className="text-lg font-semibold ">Posted By</h4>
+          <p className="">{displayName}</p>
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-gray-700">Email</h4>
-          <p className="text-gray-600">{email}</p>
+          <h4 className="text-lg font-semibold ">Email</h4>
+          <p className="">{email}</p>
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-gray-700">Location</h4>
-          <p className="text-gray-600">{location}</p>
+          <h4 className="text-lg font-semibold ">Location</h4>
+          <p className="">{location}</p>
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-gray-700">Rent Amount</h4>
-          <p className="text-gray-600">${rentAmount}/month</p>
+          <h4 className="text-lg font-semibold ">Rent Amount</h4>
+          <p className="">${rentAmount}/month</p>
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-gray-700">Room Type</h4>
-          <p className="text-gray-600">{roomType}</p>
+          <h4 className="text-lg font-semibold ">Room Type</h4>
+          <p className="">{roomType}</p>
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-gray-700">
-            Lifestyle Preferences
-          </h4>
-          <p className="text-gray-600">{lifeStyle}</p>
+          <h4 className="text-lg font-semibold ">Lifestyle Preferences</h4>
+          <p className="">{lifeStyle}</p>
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-gray-700">Availability</h4>
+          <h4 className="text-lg font-semibold ">Availability</h4>
           <p
             className={`font-semibold ${
               available === "yes" ? "text-green-600" : "text-red-500"
@@ -93,8 +87,8 @@ const RoomDetails = () => {
         </div>
 
         <div className="md:col-span-2">
-          <h4 className="text-lg font-semibold text-gray-700">Description</h4>
-          <p className="text-gray-600">{description}</p>
+          <h4 className="text-lg font-semibold ">Description</h4>
+          <p className="">{description}</p>
         </div>
       </div>
     </div>

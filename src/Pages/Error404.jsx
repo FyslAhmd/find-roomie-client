@@ -8,7 +8,7 @@ const Error404 = () => {
     document.title = "App Store | Error";
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-12 bg-gray-100 text-gray-800">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-12 bg-base-100 text-base-content">
       <div className="max-w-md w-full text-center">
         <Lottie
           animationData={notFoundAnimation}
@@ -16,7 +16,7 @@ const Error404 = () => {
           className="w-full h-40 md:h-72 mx-auto"
         />
         <h1 className="text-4xl font-bold mt-4">Oops! Page Not Found</h1>
-        <p className="text-lg mt-2 text-gray-600">
+        <p className="text-lg mt-2">
           The page you're looking for doesn't exist or has been moved.
         </p>
         <Link to="/" className="my-10 btn bg-black text-white text-xl">

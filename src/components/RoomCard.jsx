@@ -8,7 +8,7 @@ const RoomCard = ({ data }) => {
   const { _id, title, location, rentAmount, roomType, lifeStyle, displayName } =
     data;
   return (
-    <div className="card bg-base-100 shadow-sm">
+    <div className="card bg-base-100 shadow-lg border border-white">
       <div className="card-body">
         <span className="badge badge-xs badge-success font-medium text-black">
           Available

@@ -4,16 +4,15 @@ import { Link, useLoaderData } from "react-router";
 const BrowseListings = () => {
   const allData = useLoaderData();
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto text-base-context">
       <table className="table">
-        <thead>
-          <tr className="text-black text-xl">
-            <th>Name</th>
-            <th>Title</th>
-            <th>Rent</th>
-            <th></th>
-          </tr>
-        </thead>
+        <tr className="text-xl">
+          <th>Name</th>
+          <th>Title</th>
+          <th>Rent</th>
+          <th></th>
+        </tr>
+
         <tbody>
           {allData.map((data) => (
             <tr key={data._id}>

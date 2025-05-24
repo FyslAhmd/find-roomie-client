@@ -2,7 +2,6 @@ import React, { use, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import AuthContext from "../provider/AuthContext";
-import testImg from "../assets/slider/bgimg2.jpg";
 
 const Login = () => {
   const { setUser, loginUser, signInGoogle } = use(AuthContext);
@@ -40,11 +39,11 @@ const Login = () => {
 
   return (
     <>
-      <div className="card bg-white/30 backdrop-blur-md w-full max-w-sm mx-auto shrink-0 shadow-2xl my-20">
+      <div className="card backdrop-blur-md w-full max-w-sm mx-auto shrink-0 shadow-2xl my-20">
         <div className="card-body">
           <h1 className="text-2xl font-bold text-center mb-3">Login</h1>
           <form onSubmit={handleLogin} className="fieldset">
-            <label className="label">Email</label>
+            <label className="">Email</label>
             <input
               type="email"
               name="email"

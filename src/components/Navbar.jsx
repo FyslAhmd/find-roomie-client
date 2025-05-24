@@ -1,13 +1,16 @@
-import React, { use, useState } from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
-import navImg from "../assets/logo3.PNG";
+import navImg from "../assets/logo3.1.PNG";
 import AuthContext from "../provider/AuthContext";
 import profilePic from "../assets/profile.png";
 import { toast } from "react-toastify";
-import ThemeToggle from "./ThemeToggle";
+import { useDarkMode } from "../provider/ThemeContext";
+import { IoIosSunny } from "react-icons/io";
+import { FaMoon } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, setUser, logOut } = use(AuthContext);
+  const { darkMode, setDarkMode } = useDarkMode();
 
   const logOutUser = () => {
     logOut()
@@ -46,7 +49,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm rounded-xl">
+    <div className="navbar bg-base-100 border-l border-r border-b border-white shadow-sm rounded-xl">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="md:hidden mr-2">
@@ -73,7 +76,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className="md:text-xl font-bold flex gap-3 cursor-pointer" to="/">
-          <img className="h-10 rounded-xl" src={navImg} alt="" />
+          <img className="h-10 rounded-lg bg-black" src={navImg} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden md:flex">
@@ -81,7 +84,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div>
-          <ThemeToggle></ThemeToggle>
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-3 bg-base-300 rounded-full mr-2"
+          >
+            {darkMode ? <IoIosSunny size={20} /> : <FaMoon size={20} />}
+          </button>
         </div>
         {user ? (
           <div className="flex items-center gap-3">
@@ -104,7 +112,7 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <div>
+          <div className="flex gap-2">
             <Link className="btn bg-black text-white" to="/login">
               Login
             </Link>

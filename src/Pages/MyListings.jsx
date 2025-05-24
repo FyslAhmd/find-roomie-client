@@ -10,7 +10,9 @@ const MyListings = () => {
   const [allData, setAllData] = useState([]);
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/myListings/${user.email}`)
+      fetch(
+        `https://roommate-finder-server-phi.vercel.app/myListings/${user.email}`
+      )
         .then((res) => res.json())
         .then((d) => {
           setAllData(d);
@@ -19,7 +21,7 @@ const MyListings = () => {
   }, [user?.email]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/roomInfo/${id}`, {
+    fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -33,16 +35,14 @@ const MyListings = () => {
   };
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto text-base-content">
       <table className="table">
-        <thead>
-          <tr className="text-black text-xl">
-            <th>Title</th>
-            <th>Title</th>
-            <th>Rent</th>
-            <th></th>
-          </tr>
-        </thead>
+        <tr className="text-xl">
+          <th>Title</th>
+          <th>Title</th>
+          <th>Rent</th>
+          <th></th>
+        </tr>
         <tbody>
           {allData.map((data) => (
             <tr key={data._id}>

@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
 body {
   font-family: "Roboto", sans-serif;
 }
 a.active {
-  @apply bg-black text-white rounded-xl;
+  @apply bg-black text-white rounded-lg;
 }

@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch("http://localhost:5000/featuredRoommate"),
+        loader: () => fetch("https://roommate-finder-server-phi.vercel.app/featuredRoommate"),
         hydrateFallbackElement: <h1>loading</h1>,
       },
       {
@@ -33,18 +33,18 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/roomInfo/${params.id}`),
+          fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${params.id}`),
         Component: RoomDetails,
       },
       {
         path: "/browseListing",
-        loader: () => fetch("http://localhost:5000/roomInfo"),
+        loader: () => fetch("https://roommate-finder-server-phi.vercel.app/roomInfo"),
         Component: BrowseListings,
       },
       {
         path: "/updateroom/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/roomInfo/${params.id}`),
+          fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${params.id}`),
         Component: UpdateRoom,
       },
       {

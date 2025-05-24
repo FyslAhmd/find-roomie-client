@@ -12,7 +12,7 @@ const FindRoommate = () => {
     const roomInfo = { ...formInfo, email, displayName };
 
     // send to DB
-    fetch("http://localhost:5000/roomInfo", {
+    fetch("https://roommate-finder-server-phi.vercel.app/roomInfo", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(roomInfo),
@@ -26,15 +26,15 @@ const FindRoommate = () => {
   };
   return (
     <div>
-      <h1 className="text-3xl text-center font-bold my-5">
+      <h1 className="text-3xl text-center text-base-content font-bold my-5">
         Find Your Roommate
       </h1>
       <form
         onSubmit={handleAddRoommate}
-        className="fieldset w-full p-4 grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="w-full p-4 grid grid-cols-1 md:grid-cols-2 gap-6"
       >
         <div>
-          <label className="label text-xl text-black">Title</label>
+          <label className="text-xl">Title</label>
           <br />
           <input
             type="text"
@@ -45,7 +45,7 @@ const FindRoommate = () => {
         </div>
 
         <div>
-          <label className="label text-xl text-black">Location</label>
+          <label className=" text-xl">Location</label>
           <br />
           <input
             type="text"
@@ -56,7 +56,7 @@ const FindRoommate = () => {
         </div>
 
         <div>
-          <label className="label text-xl text-black">Rent Amount</label>
+          <label className=" text-xl ">Rent Amount</label>
           <br />
           <input
             type="text"
@@ -67,7 +67,7 @@ const FindRoommate = () => {
         </div>
 
         <div>
-          <label className="label text-xl text-black">Room Type</label>
+          <label className=" text-xl ">Room Type</label>
           <br />
           <input
             type="text"
@@ -84,9 +84,7 @@ const FindRoommate = () => {
         </div>
 
         <div>
-          <label className="label text-xl text-black">
-            Lifestyle Preferences
-          </label>
+          <label className=" text-xl ">Lifestyle Preferences</label>
           <br />
           <input
             type="text"
@@ -103,7 +101,7 @@ const FindRoommate = () => {
         </div>
 
         <div>
-          <label className="label text-xl text-black">Description</label>
+          <label className=" text-xl ">Description</label>
           <br />
           <textarea
             className="h-24 w-full md:w-2/3 border rounded-lg p-2 text-lg"
@@ -113,7 +111,7 @@ const FindRoommate = () => {
         </div>
 
         <div>
-          <label className="label text-xl text-black">Contact Info</label>
+          <label className=" text-xl ">Contact Info</label>
           <br />
           <input
             type="text"
@@ -124,14 +122,14 @@ const FindRoommate = () => {
         </div>
 
         <div>
-          <label className="label text-xl text-black">Availability</label>
+          <label className=" text-xl ">Availability</label>
           <br />
           <div className="flex justify-around w-full md:w-2/3 gap-4 border p-2 rounded-xl">
             <div className="flex items-center gap-5">
               <input
                 type="radio"
                 name="available"
-                className="radio radio-neutral"
+                className="radio radio-accent"
                 id="yes"
                 value="yes"
               />
@@ -143,7 +141,7 @@ const FindRoommate = () => {
               <input
                 type="radio"
                 name="available"
-                className="radio radio-neutral"
+                className="radio radio-accent"
                 id="no"
                 value="no"
               />
@@ -155,7 +153,7 @@ const FindRoommate = () => {
         </div>
 
         <div>
-          <label className="label text-xl text-black">Email</label>
+          <label className=" text-xl ">Email</label>
           <br />
           <input
             type="email"
@@ -168,7 +166,7 @@ const FindRoommate = () => {
         </div>
 
         <div>
-          <label className="label text-xl text-black">Name</label>
+          <label className=" text-xl ">Name</label>
           <br />
           <input
             type="text"
