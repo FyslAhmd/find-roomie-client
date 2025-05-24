@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import AuthContext from "../provider/AuthContext";
+import Swal from "sweetalert2";
 
 const FindRoommate = () => {
   const { user } = use(AuthContext);
@@ -20,8 +21,15 @@ const FindRoommate = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          console.log("data posted in DB");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your Post Has Been Added Successfully",
+            showConfirmButton: false,
+            timer: 3000,
+          });
         }
+        e.target.reset();
       });
   };
   return (

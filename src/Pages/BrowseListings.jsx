@@ -6,14 +6,13 @@ const BrowseListings = () => {
   return (
     <div className="overflow-x-auto text-base-context">
       <table className="table">
-        <tr className="text-xl">
-          <th>Name</th>
-          <th>Title</th>
-          <th>Rent</th>
-          <th></th>
-        </tr>
-
         <tbody>
+          <tr className="text-xl">
+            <th>Name</th>
+            <th>Title</th>
+            <th>Rent</th>
+            <th>Total Post:{allData.length}</th>
+          </tr>
           {allData.map((data) => (
             <tr key={data._id}>
               <td>
@@ -38,7 +37,7 @@ const BrowseListings = () => {
               <th>
                 <Link to={`/details/${data._id}`}>
                   <button className="btn btn-sm bg-black text-white font-bold">
-                    Details
+                    See More
                   </button>
                 </Link>
               </th>

@@ -4,46 +4,69 @@ import { useEffect } from "react";
 import AuthContext from "../provider/AuthContext";
 import { useState } from "react";
 import { Link } from "react-router";
+import Loadings from "./Loadings";
+import Swal from "sweetalert2";
 
 const MyListings = () => {
   const { user } = use(AuthContext);
   const [allData, setAllData] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     if (user?.email) {
+      setLoading(true);
       fetch(
         `https://roommate-finder-server-phi.vercel.app/myListings/${user.email}`
       )
         .then((res) => res.json())
         .then((d) => {
           setAllData(d);
+          setLoading(false);
         });
     }
   }, [user?.email]);
+  if (loading) {
+    return <Loadings></Loadings>;
+  }
 
   const handleDelete = (id) => {
-    fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount) {
-          console.log("data deleted");
-          const remainingData = allData.filter((item) => item._id !== id);
-          setAllData(remainingData);
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const remainingData = allData.filter((item) => item._id !== id);
+              setAllData(remainingData);
+            }
+          });
+      }
+    });
   };
 
   return (
     <div className="overflow-x-auto text-base-content">
       <table className="table">
-        <tr className="text-xl">
-          <th>Title</th>
-          <th>Title</th>
-          <th>Rent</th>
-          <th></th>
-        </tr>
         <tbody>
+          <tr className="text-xl">
+            <th>Title</th>
+            <th>Contact</th>
+            <th>Rent</th>
+            <th>Total Post:{allData.length}</th>
+          </tr>
           {allData.map((data) => (
             <tr key={data._id}>
               <td>
@@ -55,7 +78,7 @@ const MyListings = () => {
                 </div>
               </td>
               <td>
-                {data.title}
+                {data.contact}
                 <br />
                 <span className="badge badge-ghost badge-sm">
                   Available: {data.available}

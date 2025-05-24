@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const UpdateRoom = () => {
   const data = useLoaderData();
@@ -39,7 +40,13 @@ const UpdateRoom = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
-          console.log("data updated in DB");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your Post Has Been Updated",
+            showConfirmButton: false,
+            timer: 3000,
+          });
         }
       });
   };

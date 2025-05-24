@@ -10,6 +10,7 @@ import RoomDetails from "../Pages/RoomDetails";
 import BrowseListings from "../Pages/BrowseListings";
 import MyListings from "../Pages/MyListings";
 import UpdateRoom from "../Pages/UpdateRoom";
+import Loadings from "../Pages/Loadings";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +20,11 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch("https://roommate-finder-server-phi.vercel.app/featuredRoommate"),
-        hydrateFallbackElement: <h1>loading</h1>,
+        loader: () =>
+          fetch(
+            "https://roommate-finder-server-phi.vercel.app/featuredRoommate"
+          ),
+        hydrateFallbackElement: <Loadings></Loadings>,
       },
       {
         path: "/findRoommates",
@@ -33,19 +37,32 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         loader: ({ params }) =>
-          fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${params.id}`),
-        Component: RoomDetails,
+          fetch(
+            `https://roommate-finder-server-phi.vercel.app/roomInfo/${params.id}`
+          ),
+        element: (
+          <PrivateRoute>
+            <RoomDetails></RoomDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/browseListing",
-        loader: () => fetch("https://roommate-finder-server-phi.vercel.app/roomInfo"),
+        loader: () =>
+          fetch("https://roommate-finder-server-phi.vercel.app/roomInfo"),
         Component: BrowseListings,
       },
       {
         path: "/updateroom/:id",
         loader: ({ params }) =>
-          fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${params.id}`),
-        Component: UpdateRoom,
+          fetch(
+            `https://roommate-finder-server-phi.vercel.app/roomInfo/${params.id}`
+          ),
+        element: (
+          <PrivateRoute>
+            <UpdateRoom></UpdateRoom>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myListing",

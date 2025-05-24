@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AiOutlineLike } from "react-icons/ai";
+import AuthContext from "../provider/AuthContext";
 
 const RoomDetails = () => {
+  const { user } = use(AuthContext);
   const data = useLoaderData();
   const [showContact, setShowContact] = useState(false);
-  const [like, setLike] = useState(0);
+  const [like, setLike] = useState(data.like || 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const {
+    _id,
     title,
     location,
     rentAmount,
@@ -20,7 +26,16 @@ const RoomDetails = () => {
   } = data;
 
   const handleLike = () => {
-    setLike(like + 1);
+    if (user.email === email) return;
+    const newLikeCount = like + 1;
+    setLike(newLikeCount);
+    fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ like: newLikeCount }),
+    });
     setShowContact(true);
   };
 

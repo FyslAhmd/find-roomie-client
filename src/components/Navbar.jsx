@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, NavLink } from "react-router";
 import navImg from "../assets/logo3.1.PNG";
 import AuthContext from "../provider/AuthContext";
@@ -11,6 +11,7 @@ import { FaMoon } from "react-icons/fa";
 const Navbar = () => {
   const { user, setUser, logOut } = use(AuthContext);
   const { darkMode, setDarkMode } = useDarkMode();
+  const [showUserMenu, setShowUserMenu] = useState(false);
 
   const logOutUser = () => {
     logOut()
@@ -92,24 +93,34 @@ const Navbar = () => {
           </button>
         </div>
         {user ? (
-          <div className="flex items-center gap-3">
-            {user.photoURL ? (
+          <div className="relative">
+            <button
+              onClick={() => setShowUserMenu(!showUserMenu)}
+              className="focus:outline-none"
+            >
               <img
-                src={user.photoURL}
+                src={user.photoURL || profilePic}
                 alt="Profile"
-                title={user.displayName}
-                className="w-10 h-10 rounded-full border border-gray-300"
+                className="w-10 h-10 rounded-full border border-gray-300 cursor-pointer"
               />
-            ) : (
-              <img
-                src={profilePic}
-                alt="Profile"
-                className="w-10 h-10 rounded-full border border-gray-300"
-              />
+            </button>
+
+            {showUserMenu && (
+              <div className="absolute right-0 mt-2 w-48 bg-base-100 border border-gray-200 rounded-lg shadow-md p-4 z-50">
+                <div className="text-sm font-semibold mb-2">
+                  {user.displayName}
+                </div>
+                <button
+                  onClick={() => {
+                    logOutUser();
+                    setShowUserMenu(false);
+                  }}
+                  className="btn btn-sm bg-black text-white w-full"
+                >
+                  Log Out
+                </button>
+              </div>
             )}
-            <Link onClick={logOutUser} className="btn bg-black text-white">
-              Log Out
-            </Link>
           </div>
         ) : (
           <div className="flex gap-2">
