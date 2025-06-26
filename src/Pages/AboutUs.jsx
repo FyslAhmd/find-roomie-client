@@ -15,7 +15,7 @@ const AboutUs = () => {
             </span>
           </h2>
 
-          <p className="mt-6 text-gray-800 text-lg md:text-xl leading-relaxed max-w-2xl text-justify">
+          <p className="mt-6 text-lg md:text-xl leading-relaxed max-w-2xl text-justify">
             At FindMyRoomie, we believe that finding the perfect roommate should
             be simple, safe, and stress-free. Our platform connects like-minded
             individuals based on preferences, lifestyle, and location to help

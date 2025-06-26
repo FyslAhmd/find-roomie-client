@@ -8,11 +8,13 @@ import { RiTeamFill } from "react-icons/ri";
 import { MdPermContactCalendar } from "react-icons/md";
 const Sidebar = () => {
   return (
-    <div className="w-64 bg-gray-800 text-white p-6 m-4 rounded-xl">
+    <div className="md:w-64 bg-gray-800 text-white md:p-6 md:m-4 md:rounded-xl">
       <div className="flex justify-center">
-        <img src={bgimage} alt="" className="w-30" />
+        <img src={bgimage} alt="" className="w-20 md:w-30" />
       </div>
-      <div className="text-2xl font-semibold mb-8">Find My Roomie</div>
+      <div className="text-2xl font-semibold mb-8">
+        Find My <br className="block md:hidden" /> Roomie
+      </div>
       <ul className="space-y-4">
         <li>
           <Link to="/" className="flex items-center gap-2 text-lg py-2">
@@ -26,7 +28,7 @@ const Sidebar = () => {
             className="flex items-center gap-2 text-lg py-2"
           >
             <FaSearch />
-            Find Roommates
+            Find <br className="block md:hidden" /> Roommates
           </Link>
         </li>
         <li>
@@ -35,7 +37,7 @@ const Sidebar = () => {
             className="flex items-center gap-2 text-lg py-2"
           >
             <TbBrowserMaximize />
-            Browse Listing
+            Browse <br className="block md:hidden" /> Listing
           </Link>
         </li>
         <li>

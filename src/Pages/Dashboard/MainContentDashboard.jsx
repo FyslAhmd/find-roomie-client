@@ -27,7 +27,7 @@ const MainContentDashboard = () => {
   }, []);
   if (!allPost || !available || !user) return <Loadings></Loadings>;
   return (
-    <div className="m-4 bg-gray-200 p-6 rounded-xl">
+    <div className="md:m-4 bg-base-300 p-6 rounded-xl">
       <h1 className="text-3xl font-bold mb-6">Welcome To Dashboard</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
