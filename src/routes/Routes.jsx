@@ -13,6 +13,8 @@ import UpdateRoom from "../Pages/UpdateRoom";
 import Loadings from "../Pages/Loadings";
 import AboutUs from "../Pages/AboutUs";
 import ContactUs from "../Pages/ContactUs";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import MainContentDashboard from "../Pages/Dashboard/MainContentDashboard";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +85,14 @@ const router = createBrowserRouter([
         Component: Register,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
   },
   {
     path: "*",

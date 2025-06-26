@@ -1,7 +1,6 @@
 import React from "react";
 import { IoMdPerson } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
-import { MdBedroomChild, MdOutlineTextSnippet } from "react-icons/md";
 import { Link } from "react-router";
 
 const RoomCard = ({ data }) => {
@@ -15,7 +14,7 @@ const RoomCard = ({ data }) => {
         <div className="flex justify-between">
           <h2 className="text-2xl font-bold">{title}</h2>
         </div>
-        <ul className="mt-6 flex flex-col gap-2 text-xs">
+        <ul className="mt-6 flex flex-col gap-2 text-xs flex-1">
           <li className="flex items-center gap-3">
             <IoMdPerson size={20} />
             <span>{displayName}</span>

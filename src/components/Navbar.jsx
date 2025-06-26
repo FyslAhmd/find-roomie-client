@@ -154,6 +154,9 @@ const Navbar = () => {
                 <div className="text-sm font-semibold mb-2">
                   {user.displayName}
                 </div>
+                <div className="text-sm font-semibold mb-2">
+                  <Link to="/dashboard">Dashboard</Link>
+                </div>
                 <button
                   onClick={() => {
                     logOutUser();
