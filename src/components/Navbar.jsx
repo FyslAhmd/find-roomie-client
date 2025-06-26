@@ -24,7 +24,33 @@ const Navbar = () => {
       });
   };
 
-  const links = (
+  const beforeLoginLinks = (
+    <>
+      <NavLink className="text-base md:text-lg font-medium md:mr-4 p-2" to="/">
+        Home
+      </NavLink>
+      <NavLink
+        className="text-base md:text-lg font-medium md:mr-2 p-2"
+        to="/browseListing"
+      >
+        Browse Listing
+      </NavLink>
+      <NavLink
+        className="text-base md:text-lg font-medium md:mr-2 p-2"
+        to="/about"
+      >
+        About Us
+      </NavLink>
+      <NavLink
+        className="text-base md:text-lg font-medium md:mr-2 p-2"
+        to="/contact"
+      >
+        Contact
+      </NavLink>
+    </>
+  );
+
+  const afterLoginLinks = (
     <>
       <NavLink className="text-base md:text-lg font-medium md:mr-4 p-2" to="/">
         Home
@@ -47,10 +73,22 @@ const Navbar = () => {
       >
         My Listing
       </NavLink>
+      <NavLink
+        className="text-base md:text-lg font-medium md:mr-2 p-2"
+        to="/about"
+      >
+        About Us
+      </NavLink>
+      <NavLink
+        className="text-base md:text-lg font-medium md:mr-2 p-2"
+        to="/contact"
+      >
+        Contact
+      </NavLink>
     </>
   );
   return (
-    <div className="navbar bg-base-100 border-l border-r border-b border-white shadow-sm rounded-xl">
+    <div className="navbar bg-base-100 border-b rounded-b-xl sticky z-500 top-0">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="lg:hidden mr-2">
@@ -73,15 +111,21 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            {links}
+            {user ? afterLoginLinks : beforeLoginLinks}
           </ul>
         </div>
         <Link className="md:text-xl font-bold flex gap-3 cursor-pointer" to="/">
-          <img className="h-7 md:h-10 rounded-md md:rounded-lg bg-black" src={navImg} alt="" />
+          <img
+            className="h-7 md:h-10 rounded-md md:rounded-lg bg-black"
+            src={navImg}
+            alt=""
+          />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1">
+          {user ? afterLoginLinks : beforeLoginLinks}
+        </ul>
       </div>
       <div className="navbar-end">
         <div>

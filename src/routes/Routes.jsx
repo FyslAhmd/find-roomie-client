@@ -11,6 +11,8 @@ import BrowseListings from "../Pages/BrowseListings";
 import MyListings from "../Pages/MyListings";
 import UpdateRoom from "../Pages/UpdateRoom";
 import Loadings from "../Pages/Loadings";
+import AboutUs from "../Pages/AboutUs";
+import ContactUs from "../Pages/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -20,10 +22,7 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () =>
-          fetch(
-            "https://roommate-finder-server-phi.vercel.app/featuredRoommate"
-          ),
+        loader: () => fetch("http://localhost:5000/featuredRoommate"),
         hydrateFallbackElement: <Loadings></Loadings>,
       },
       {
@@ -37,9 +36,7 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://roommate-finder-server-phi.vercel.app/roomInfo/${params.id}`
-          ),
+          fetch(`http://localhost:5000/roomInfo/${params.id}`),
         element: (
           <PrivateRoute>
             <RoomDetails></RoomDetails>
@@ -48,16 +45,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/browseListing",
-        loader: () =>
-          fetch("https://roommate-finder-server-phi.vercel.app/roomInfo"),
+        loader: () => fetch("http://localhost:5000/roomInfo"),
         Component: BrowseListings,
       },
       {
         path: "/updateroom/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://roommate-finder-server-phi.vercel.app/roomInfo/${params.id}`
-          ),
+          fetch(`http://localhost:5000/roomInfo/${params.id}`),
         element: (
           <PrivateRoute>
             <UpdateRoom></UpdateRoom>
@@ -71,6 +65,14 @@ const router = createBrowserRouter([
             <MyListings></MyListings>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/about",
+        Component: AboutUs,
+      },
+      {
+        path: "/contact",
+        Component: ContactUs,
       },
       {
         path: "/login",

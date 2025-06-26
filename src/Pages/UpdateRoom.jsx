@@ -36,7 +36,7 @@ const UpdateRoom = () => {
     };
 
     // send to DB
-    fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${_id}`, {
+    fetch(`http://localhost:5000/roomInfo/${_id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(roomInfo),

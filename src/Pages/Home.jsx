@@ -5,18 +5,20 @@ import { useLoaderData } from "react-router";
 import Steps from "../components/Steps";
 import SuccessStory from "../components/SuccessStory";
 import { useEffect } from "react";
+import Newsletter from "../components/Newsletter";
 
 const Home = () => {
   const data = useLoaderData();
   useEffect(() => {
-      document.title = "FindMyRoomie | Home";
-    }, []);
+    document.title = "FindMyRoomie | Home";
+  }, []);
   return (
     <div className="">
       <Slider></Slider>
       <RoommatePosts data={data}></RoommatePosts>
       <Steps></Steps>
       <SuccessStory></SuccessStory>
+      <Newsletter></Newsletter>
     </div>
   );
 };

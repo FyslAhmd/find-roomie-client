@@ -30,7 +30,7 @@ const RoomDetails = () => {
     if (user.email === email) return;
     const newLikeCount = like + 1;
     setLike(newLikeCount);
-    fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${_id}`, {
+    fetch(`http://localhost:5000/roomInfo/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
