@@ -25,6 +25,7 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: () => fetch("http://localhost:5000/featuredRoommate"),
+        loader: () => fetch("http://localhost:5000/featuredRoommate"),
         hydrateFallbackElement: <Loadings></Loadings>,
       },
       {
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
         path: "/details/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/roomInfo/${params.id}`),
+          fetch(`http://localhost:5000/roomInfo/${params.id}`),
         element: (
           <PrivateRoute>
             <RoomDetails></RoomDetails>
@@ -48,11 +50,13 @@ const router = createBrowserRouter([
       {
         path: "/browseListing",
         loader: () => fetch("http://localhost:5000/roomInfo"),
+        loader: () => fetch("http://localhost:5000/roomInfo"),
         Component: BrowseListings,
       },
       {
         path: "/updateroom/:id",
         loader: ({ params }) =>
+          fetch(`http://localhost:5000/roomInfo/${params.id}`),
           fetch(`http://localhost:5000/roomInfo/${params.id}`),
         element: (
           <PrivateRoute>
@@ -67,6 +71,14 @@ const router = createBrowserRouter([
             <MyListings></MyListings>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/about",
+        Component: AboutUs,
+      },
+      {
+        path: "/contact",
+        Component: ContactUs,
       },
       {
         path: "/about",
