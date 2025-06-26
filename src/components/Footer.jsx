@@ -1,21 +1,36 @@
 import React from "react";
+import webLogo from "/Logo.png";
+import webLog from "../assets/bglogo1.png";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-black text-white p-10">
-      <nav>
-        <h6 className="footer-title">RoomMateFinder</h6>
-        <a className="link link-hover">Browse Roommates</a>
-        <a className="link link-hover">Post Your Room</a>
-        <a className="link link-hover">Safety Tips</a>
-        <a className="link link-hover">Community Guidelines</a>
+      <nav className="flex flex-col items-center">
+        <img src={webLog} alt="Find My Roomie" className="w-20 rounded-md" />
+        <h1 className="text-2xl font-semibold tracking-wide">Find My Roomie</h1>
+        <p className="text-sm text-gray-400 mt-1 max-w-xs text-center">
+          A trusted place to find the perfect roommate or post your available
+          room — safe, easy, and community-driven.
+        </p>
       </nav>
       <nav>
-        <h6 className="footer-title">Developer</h6>
-        <a className="link link-hover">About the Developer</a>
-        <a className="link link-hover">My Portfolio</a>
-        <a className="link link-hover">GitHub Repository</a>
-        <a className="link link-hover">Contact Me</a>
+        <h6 className="footer-title">Roommate Finder</h6>
+        <Link to="/browseListing" className="link link-hover">
+          Browse Roommates
+        </Link>
+        <Link to="/findRoommates" className="link link-hover">
+          Post Your Room
+        </Link>
+        <Link to="/contact" className="link link-hover">
+          Contact Us
+        </Link>
+        <Link to="/about" className="link link-hover">
+          About Us
+        </Link>
+        <Link to="/contact" className="link link-hover">
+          About the Developer
+        </Link>
       </nav>
       <nav>
         <h6 className="footer-title">Social</h6>

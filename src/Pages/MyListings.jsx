@@ -16,7 +16,7 @@ const MyListings = () => {
     if (user?.email) {
       setLoading(true);
       fetch(
-        `https://roommate-finder-server-phi.vercel.app/myListings/${user.email}`
+        `http://localhost:5000/myListings/${user.email}`
       )
         .then((res) => res.json())
         .then((d) => {
@@ -39,7 +39,7 @@ const MyListings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://roommate-finder-server-phi.vercel.app/roomInfo/${id}`, {
+        fetch(`http://localhost:5000/roomInfo/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

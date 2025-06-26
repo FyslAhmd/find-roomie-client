@@ -18,7 +18,7 @@ const FindRoommate = () => {
     const roomInfo = { ...formInfo, email, displayName };
 
     // send to DB
-    fetch("https://roommate-finder-server-phi.vercel.app/roomInfo", {
+    fetch("http://localhost:5000/roomInfo", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(roomInfo),
